@@ -1,0 +1,90 @@
+/* CSS for index.html */
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/static/daging.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    overflow-x: hidden;
+    opacity: 0; /* Awalnya elemen tidak terlihat */
+    animation: fadeIn 1s forwards; /* Animasi muncul */
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0; /* Awalnya elemen tidak terlihat */
+    animation: fadeIn 1s forwards; /* Animasi muncul */
+    animation-delay: 0.5s; /* Delay agar muncul setelah body */
+  }
+  
+  header img {
+    max-width: 70px;
+    margin-right: 20px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: 1px solid #faf5f5;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    opacity: 0; /* Awalnya elemen tidak terlihat */
+    animation: fadeIn 1.5s forwards; /* Animasi muncul */
+    animation-delay: 1.2s; /* Delay agar muncul setelah header */
+  }
+  
+  nav a:hover {
+    transform: translateY(-5px);
+    background-color: #333;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    opacity: 0; /* Awalnya elemen tidak terlihat */
+    animation: fadeIn 1.5s forwards; /* Animasi muncul */
+    animation-delay: 1.5s; /* Delay agar muncul setelah navigasi */
+  }
+  
+  h1 {
+    font-size: 36px;
+    text-align: center;
+    transition: transform 0.5s ease;
+  }
+  
+  h1:hover {
+    transform: scale(1.1);
+  }
+  

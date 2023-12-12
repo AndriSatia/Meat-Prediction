@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistika Prediksi Harga Daging</title>
+    <!-- Tambahkan link Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            display: flex;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: 10px;
+            width: 80%;
+            /* Ubah lebar container sesuai kebutuhan */
+            max-width: 1200px;
+            /* Tentukan lebar maksimum container */
+            margin: 20px;
+            /* Tambahkan margin agar terlihat lebih baik */
+        }
+
+        #leftSection,
+        #rightSection {
+            flex: 1;
+            padding: 40px;
+            /* Sesuaikan padding untuk membuat section lebih besar */
+        }
+
+        #rightSection {
+            background-color: #4caf50;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /* Tambahkan properti justify-content untuk membuat kontennya berada di tengah */
+        }
+
+        #leftSection canvas {
+            width: 100%;
+            /* Agar grafik memenuhi seluruh lebar leftSection */
+        }
+
+        input[type="month"] {
+            margin-bottom: 20px;
+            padding: 15px;
+            /* Sesuaikan padding untuk membuat input lebih besar */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 18px;
+            /* Sesuaikan ukuran font untuk membuat input lebih besar */
+        }
+
+        #predictionResult {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <!-- Left Section: Grafik Prediksi Harga Daging -->
+        <div id="leftSection">
+            <h2 style="color: #4caf50;">Grafik Prediksi Harga Daging</h2>
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <!-- Right Section: Form Pencarian Harga Prediksi -->
+        <div id="rightSection">
+            <h2>Cari Harga Prediksi</h2>
+            <!-- Form untuk memilih waktu -->
+            <label for="selectTime" style="font-size: 18px;">Pilih Bulan/Tahun:</label>
+            <input type="month" id="selectTime" onchange="updatePrediction">
+
+            <!-- Hasil prediksi harga daging -->
+            <div id="predictionResult"></div>
+        </div>
+    </div>
+
+    <script>
+        // Data contoh untuk grafik (bisa diganti dengan data aktual)
+        var data = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Harga Daging',
+                data: [50, 45, 60, 55, 70, 65, 80, 75, 90, 85, 100, 95],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Konfigurasi grafik
+        var config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        // Inisialisasi grafik
+        var myChart = new Chart(document.getElementById('myChart').getContext('2d'), config);
+
+        // Fungsi untuk memperbarui hasil prediksi berdasarkan waktu yang dipilih
+        function updatePrediction() {
+            var selectedTime = document.getElementById('selectTime').value;
+            // Lakukan pengambilan data prediksi harga daging untuk waktu yang dipilih
+            // Gantilah data ini dengan sumber data aktual atau API request
+            var predictionData = getPredictedDataForTime(selectedTime);
+
+            // Tampilkan hasil prediksi
+            var resultElement = document.getElementById('predictionResult');
+            resultElement.textContent = `Prediksi harga daging untuk ${selectedTime}: ${predictionData} USD`;
+        }
+
+        // Fungsi ini harus diimplementasikan untuk mengambil data aktual berdasarkan waktu yang dipilih
+        function getPredictedDataForTime(selectedTime) {
+            // Implementasikan logika untuk mengambil data prediksi harga daging dari sumber data atau API
+            // Misalnya, Anda dapat membuat permintaan AJAX atau menggunakan fetch API untuk mendapatkan data dari server
+            // Return data yang sesuai dengan waktu yang dipilih
+            // Contoh sederhana:
+            return 75; // Gantilah dengan nilai sesuai dengan prediksi harga daging
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,16 +1,13 @@
 $(document).ready(function () {
-    // Use Ajax to get data from views.py
     $.ajax({
-      url: "/graph/", // Use the correct URL for your Django view
+      url: "/graph/", 
       type: "GET",
       dataType: "json",
       success: function (result) {
-        // Extract data for the chart
         var labels = result['tanggal'];
         var trueData = result['true_data'];
         var predictions = result['predictions'];
   
-        // Create a line chart using Chart.js
         var ctx = document.getElementById('predictionChart').getContext('2d');
         var myChart = new Chart(ctx, {
           type: 'line',

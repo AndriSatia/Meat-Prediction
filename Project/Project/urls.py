@@ -23,4 +23,5 @@ urlpatterns = [
     path('statistic/', views.statistic, name='statistic'),
     path('about_us/', views.about_us, name='about_us'),
     path('graph/', views.graph, name='graph'),
+    path('predict_price/', views.predict_price, name='predict_price')
 ]   

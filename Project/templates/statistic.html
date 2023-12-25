@@ -7,6 +7,7 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'styles-statistic.css' %}">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -26,8 +27,20 @@
     <h1>Model Machine Learning di Sini</h1>
     <!-- Ini buat nampilin chart -->
     <canvas id="predictionChart" width="800" height="400"></canvas>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="{% static 'script.js' %}"></script>
+
+    <!-- Formulir untuk prediksi -->
+    <form id="predictionForm">
+      {% csrf_token %}
+      <label for="tanggal_prediksi">Tanggal Prediksi (DD/MM/YYYY):</label>
+      <input type="text" id="tanggal_prediksi" name="tanggal_prediksi" required>
+      <button type="button" onclick="predictPrice()">Prediksi</button>
+    </form>
+
+    <!-- Div untuk menampilkan hasil prediksi -->
+    <div id="hasil_prediksi"></div>
+
+    <script src="{% static 'chart_script.js' %}"></script>
+    <script src="{% static 'price_script.js' %}"></script>
   </main>
 </body>
 

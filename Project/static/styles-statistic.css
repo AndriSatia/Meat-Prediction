@@ -74,9 +74,6 @@ nav a:hover {
 
 main {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   flex-grow: 1;
   opacity: 0; /* Awalnya elemen tidak terlihat */
   animation: fadeIn 1.5s forwards; /* Animasi muncul */
@@ -91,4 +88,10 @@ h1 {
 
 h1:hover {
   transform: scale(1.1);
+}
+
+#hasil_prediksi {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
 }

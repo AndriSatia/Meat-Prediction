@@ -22,26 +22,33 @@
       <a href="{% url 'about_us' %}">About Us</a>
     </nav>
   </header>
+    
+    <div id="container" style="animation: fadeIn 1.5s forwards; animation-delay: 5s; display: flex; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden; border-radius: 10px; width: 95%; height: 80%; margin: 20px; background-color: #f7f7f7;">
 
-  <main>
-    <h1>Model Machine Learning di Sini</h1>
-    <!-- Ini buat nampilin chart -->
-    <canvas id="predictionChart" width="800" height="400"></canvas>
+      <!-- bagian kiri untuk menampilkan chart -->
+      <div id="leftSection" style="flex: 60%; padding: 40px;">
+        <h2 style="color: rgb(70, 42, 34)">Grafik Harga Daging</h2>
+        <canvas id="predictionChart"></canvas>
+      </div>
 
-    <!-- Formulir untuk prediksi -->
-    <form id="predictionForm">
-      {% csrf_token %}
-      <label for="tanggal_prediksi">Tanggal Prediksi (DD/MM/YYYY):</label>
-      <input type="text" id="tanggal_prediksi" name="tanggal_prediksi" required>
-      <button type="button" onclick="predictPrice()">Prediksi</button>
-    </form>
+      <!-- bagian kanan untuk menampilkan prediksi harga daging -->
+      <div id="rightSection" style="background-color: rgb(70, 42, 34); flex: 40%; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <h2>Cari Prediksi Harga Daging</h2>
+        <form id="predictionForm">
+          {% csrf_token %}
+          <label for="tanggal_prediksi">Tanggal Prediksi (DD/MM/YYYY):</label>
+          <input type="text" id="tanggal_prediksi" name="tanggal_prediksi" required>
+          <button type="button" onclick="predictPrice()">Prediksi</button>
+        </form>
+        
+        <div id="hasil_prediksi" style="margin-top: 10px;"></div>
+      </div>
 
-    <!-- Div untuk menampilkan hasil prediksi -->
-    <div id="hasil_prediksi"></div>
+    </div>
 
     <script src="{% static 'chart_script.js' %}"></script>
     <script src="{% static 'price_script.js' %}"></script>
-  </main>
+
 </body>
 
 </html>

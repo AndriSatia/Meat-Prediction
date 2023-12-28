@@ -23,16 +23,16 @@
     </nav>
   </header>
     
-    <div id="container" style="animation: fadeIn 1.5s forwards; animation-delay: 5s; display: flex; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden; border-radius: 10px; width: 95%; height: 80%; margin: 20px; background-color: #f7f7f7;">
+    <div id="container" style="animation: fadeIn 1.5s forwards; animation-delay: 5s; display: flex; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow: hidden; border-radius: 10px; width: 95%; height: 80%; margin: 20px; ">
 
       <!-- bagian kiri untuk menampilkan chart -->
-      <div id="leftSection" style="flex: 60%; padding: 40px;">
-        <h2 style="color: rgb(70, 42, 34)">Grafik Harga Daging</h2>
+      <div id="leftSection" style="flex: 60%; padding: 40px; background-color: #f7f7f7;">
+        <h2 style="color: rgb(0, 0, 0)">Grafik Harga Daging</h2>
         <canvas id="predictionChart"></canvas>
       </div>
 
       <!-- bagian kanan untuk menampilkan prediksi harga daging -->
-      <div id="rightSection" style="background-color: rgb(70, 42, 34); flex: 40%; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <div id="rightSection" style="background-color: rgba(0, 0, 9, 0.637); color: #f7f7f7; flex: 40%; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
         <h2>Cari Prediksi Harga Daging</h2>
         <form id="predictionForm">
           {% csrf_token %}

@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'MeatPrediction'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7115866682774666AAB55FAD31C09354 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B325E914D87C4A2CA8076D4DA35044A9 }}
